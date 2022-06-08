@@ -3,7 +3,6 @@ var showing = false;
 var index = 0;
 var words = ["Algorithm", "Boolean", "Array", "Index", "Parameters", "Variable"];
 var definitions = ["a specific procedure for solving a well-defined computational problem", "a data type with two possible values: true or false", "a data structure that holds similar, related data", "used to point at a data element within an array", "a special kind of variable used in a subroutine to refer to one of the pieces of data provided as input to the subroutine", "a value that can change, depending on conditions or on information passed to the program."];
-
 var images = []
 
 updateScreen();
@@ -42,17 +41,25 @@ function toggle() {
 }
 
 function nextWord() {
-  // write code here
+if (index < words.length - 1)
+  index = index +1
+  updateScreen()
+  
   console.log("nextWord btn clicked!")
 }
 
 function previousWord() {
-  // write code here
+if (index > 0)
+  index = index - 1
+  updateScreen()
   console.log("previousWord clicked!");
 }
 
 function learnedWord() {
-  // write code here
+words.splice(index,1);
+definitions.splice(index,1);
+index = 0;
+updateScreen();
   console.log("learned word btn clicked!");
 }
 
@@ -66,4 +73,4 @@ function getText(id) {
 
 function setText(id, value) {
    document.getElementById(id).innerHTML = value;
-}
+} 
